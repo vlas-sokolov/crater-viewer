@@ -1,11 +1,11 @@
-import { OrbitControls } from 'https://unpkg.com/three@0.119.1/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from "https://unpkg.com/three@0.119.1/examples/jsm/controls/OrbitControls.js";
 
 var container;
 var camera, scene, renderer, controls;
 var mesh, texture;
 
 function init3D() {
-    container = document.getElementById( 'container' );
+    container = document.getElementById( "container" );
     camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20000 );
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xbfd1e5 );
@@ -19,7 +19,7 @@ function init3D() {
     // Controls
     controls = new OrbitControls( camera, renderer.domElement );
 
-    //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
+    //controls.addEventListener( "change", render ); // call this only in static scenes (i.e., if there is no animation loop)
 
     controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
     controls.dampingFactor = 0.05;
@@ -31,12 +31,12 @@ function init3D() {
 
     controls.maxPolarAngle = Math.PI / 2;
 
-    window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener( "resize", onWindowResize, false );
 }
 
 function initMesh(arrayData, scalingFactor) {
     var { width, height } = arrayData;
-    var heightMap = arrayData['0'];
+    var heightMap = arrayData["0"];
 
     var geometry = new THREE.PlaneBufferGeometry( 7500, 7500, width - 1, height - 1 );
     geometry.rotateX( - Math.PI / 2 );
@@ -97,12 +97,12 @@ function generateTexture( data, width, height ) {
     sun = new THREE.Vector3( 1, 1, 1 );
     sun.normalize();
 
-    canvas = document.createElement( 'canvas' );
+    canvas = document.createElement( "canvas" );
     canvas.width = width;
     canvas.height = height;
 
-    context = canvas.getContext( '2d' );
-    context.fillStyle = '#000';
+    context = canvas.getContext( "2d" );
+    context.fillStyle = "#000";
     context.fillRect( 0, 0, width, height );
 
     image = context.getImageData( 0, 0, canvas.width, canvas.height );
@@ -131,11 +131,11 @@ function generateTexture( data, width, height ) {
     context.putImageData( image, 0, 0 );
 
     // Scaled 4x
-    canvasScaled = document.createElement( 'canvas' );
+    canvasScaled = document.createElement( "canvas" );
     canvasScaled.width = width * 4;
     canvasScaled.height = height * 4;
 
-    context = canvasScaled.getContext( '2d' );
+    context = canvasScaled.getContext( "2d" );
     context.scale( 4, 4 );
     context.drawImage( canvas, 0, 0 );
 
