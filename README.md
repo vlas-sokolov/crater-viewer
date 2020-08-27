@@ -4,9 +4,10 @@ View GeoTIFF files as an interactive 3D mesh in WebGL. Currently, shows the luna
 
 ### I want to give it a spin (pun intended), how do I do that?
 
-However you like! ¯\\\_(ツ)\_/¯
+However you like! ¯\\\_(ツ)\_/¯ Here are two options:
 
-I tend to run a python webserver with `python -m http.server` in the repo folder and it *just works*.
+1. Run it locally: I tend to run a python webserver with `python -m http.server` in the repo folder and it *just works*.
+2. [Click here](https://vlas.dev/html/crater-viewer) for a demo.
 
 ### Data references
 
